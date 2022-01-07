@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Maybe Fit</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            background-image: url(img/wave-bg.jpg);
+            background-size: cover;
+        }
+        .overlay{
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: .35;
+            background: #fff;
+            width: 100%;
+            height: 100%;
+        }
+        .content {
+            width: 90vw;
+            padding: 14px;
+            position: relative;
+        }
+        .content .bg{
+            width: 100%;
+            height: auto;
+        }
+        .content .logo{
+            width: 100%;
+            height: auto;
+            top: 0;
+            left: 0;
+        }
+       
+        @media (min-width: 900px){
+            .content {
+                width: 50vw;
+                padding: 20px;
+                position: relative;
+            }  
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <img class="logo" src="img/logo.png" alt="">
+    </div>
+</body>
+</html>
