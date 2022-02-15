@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/67e1e816af.js" crossorigin="anonymous"></script>
+
     <title>Maybe Fit</title>
     <style>
         *{
@@ -19,6 +24,8 @@
             overflow: hidden;
             background-image: url(img/wave-bg.jpg);
             background-size: cover;
+
+            font-family: 'Poppins', sans-serif;
         }
         .overlay{
             position: absolute;
@@ -52,6 +59,31 @@
                 position: relative;
             }  
         }
+        
+        .links ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .links a {
+            text-decoration: none;
+            color: black;
+        }
+        .links li{
+            background: rgba(255, 255, 255, 0.78);
+            margin-bottom: 20px;
+            line-height: 40px;
+            border-radius: 20px;
+            padding: 0 16px;
+            text-align: center;
+        }
+        .links li .icon{
+            margin-right: 8px;
+        }
+        .links li a {
+            color: #ff65c3;;
+            display: block;
+        }
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5HY4YXJ3F"></script>
@@ -66,6 +98,12 @@
 <body>
     <div class="content">
         <img class="logo" src="img/logo.png" alt="">
+        <div class="links">
+            <ul>
+                <li><a href="https://api.whatsapp.com/send?phone=5585991186090&text=Oiii%2C%20quero%20saber%20mais%20sobre%20a%20cole%C3%A7%C3%A3o%20de%20lan%C3%A7amento%21"><span class="icon"><i class="fa-brands fa-whatsapp"></i></span><span class="description">Chamar no Whatsapp</span></a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=5585991186090&text=Oiii%2C%20quero%20saber%20mais%20sobre%20a%20cole%C3%A7%C3%A3o%20de%20lan%C3%A7amento%21"><span class="icon"><i class="fa-solid fa-bag-shopping"></i></span><span class="description">Ver coleção de lançamento</span></a></li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
