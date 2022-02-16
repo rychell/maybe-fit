@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/67e1e816af.js" crossorigin="anonymous"></script>
+
+    <title>Catálogo - Maybe Fit</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url(../img/wave-bg.jpg);
+            background-size: auto;
+
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: .35;
+            background: #fff;
+            width: 100%;
+            height: 100%;
+        }
+
+        .content {
+            width: 100%;
+            position: relative;
+        }
+
+        .content .bg {
+            width: 100%;
+            height: auto;
+        }
+
+        .content .logo {
+            width: 100%;
+            height: auto;
+            top: 0;
+            left: 0;
+        }
+
+        .products ul {
+            list-style: none;
+            padding: 16px 8px;
+            margin: 0;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+        }
+
+
+        .products {
+            background: white;
+            border-radius: 24px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        .products h2 {
+            margin: 0;
+            padding: 0;
+            padding-top: 24px;
+            padding-left: 32px;
+            display: block;
+            font-weight: normal;
+        }
+
+        .products li {
+            background: white;
+            width: 48%;
+            min-height: 50px;
+            margin-bottom: 16px;
+            display: block;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 0.125rem 0.25rem #00000040;
+        }
+        
+        .products li a{
+            text-decoration: none;
+            color: black;
+        }
+        .products li img {
+            width: 100%;
+            height: auto;
+        }
+
+        .products li .card-body {
+            padding: 8px 16px;
+            display: flex;
+            flex-flow: column nowrap;
+        }
+
+        .products li .card-body .name {
+            font-size: 18px;
+        }
+
+        .products li .card-body .price {
+            margin-top: 8px;
+            font-size: 18px;
+        }
+
+        .products li .card-body .cta {
+            margin-top: 8px;
+            font-size: 16px;
+            text-align: center;
+            background-color: #22ca6e;
+            padding: 8px 8px;
+            border-radius: 8px;
+            color: white;
+            display: none;
+        }
+
+        @media (min-width: 900px) {
+            .content {
+                width: 50vw;
+                padding: 20px;
+                position: relative;
+            }
+
+            .products li .card-body {
+                padding: 8px 16px;
+                display: flex;
+                flex-flow: column nowrap;
+            }
+
+            .products ul {
+                padding: 24px 16px;
+            }
+
+            .products li .card-body .name {
+                font-size: 24px;
+            }
+
+            .products li .card-body .cta {
+                font-size: 20px;
+                display: block;
+            }
+        }
+
+        .links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .links li {
+            background: rgba(255, 255, 255, 0.78);
+            margin-bottom: 20px;
+            line-height: 40px;
+            border-radius: 20px;
+            padding: 0 16px;
+            text-align: center;
+        }
+
+        .links li .icon {
+            margin-right: 8px;
+        }
+
+        .links li a {
+            color: #ff65c3;
+            ;
+            display: block;
+        }
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5HY4YXJ3F"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-R5HY4YXJ3F');
+    </script>
+</head>
+
+<body>
+    <div class="content">
+        <img class="logo" src="../img/logo.png" alt="">
+        <div class="products">
+        </div>
+    </div>
+    <script>
+        const renderProduct = (product) => {
+            return `
+            <li>
+                <a href="https://api.whatsapp.com/send?phone=5585991186090&text=Oiii%2C%20gostei%20do%20${product.name}%20<3">
+                    <div class="card-head">
+                        <img src="${product.image}" alt="Foto de ${product.name}">
+                    </div>
+                    <div class="card-body">
+                        <div class="name">
+                            ${product.name}
+                        </div>
+                        <div class="price">
+                            ${product.price}
+                        </div>
+                        <div class="cta">
+                            Pedir no Whatsapp
+                        </div>
+                    </div>
+                </a>
+            </li>
+            `
+        }
+        const renderProducts = (products) => {
+            return products.map(product => renderProduct(product)).join('')
+        }
+        const renderSection = (section) => {
+            return `
+            <h2>${section.name}</h2>
+            <ul>
+                ${renderProducts(section.products)}
+            </ul>
+            `
+        }
+        const renderSections = (sections) => {
+            return sections.map(section => renderSection(section)).join('')
+        }
+        const renderApp = () => {
+            const html = renderSections(sections)
+            document.querySelector('.products').innerHTML = html
+        }
+        const sections = [{
+                    name: 'Legging',
+                    products: [{
+                            "name": "Legging Camélia Rosa Claro",
+                            "price": "R$ 85,00",
+                            "image": "http://placehold.it/500x500"
+                        },
+                        {
+                            "name": "Legging Rosa Pink",
+                            "price": "R$ 85,00",
+                            "image": "http://placehold.it/500x500"
+                        },
+                        {
+                            "name": "Legging Jasmim Verde Azulado",
+                            "price": "R$ 85,00",
+                            "image": "http://placehold.it/500x500"
+                        },
+                        {
+                            "name": "Legging Lírio Azul Escuro",
+                            "price": "R$ 85,00",
+                            "image": "http://placehold.it/500x500"
+                        },
+                        {
+                            "name": "Legging Orquídea Lilás",
+                            "price": "R$ 85,00",
+                            "image": "http://placehold.it/500x500"
+                        },
+                        {
+                            "name": "Legging Antúrio Vinho",
+                            "price": "R$ 85,00",
+                            "image": "http://placehold.it/500x500"
+                        }
+                    ]
+                },
+                {
+                    name: 'Top',
+                    products: [{
+                            "name": "Top Camélia Rosa Claro",
+                            "price": "R$ 45,00",
+                            "image": "http://placehold.it/500x500"
+                        },
+                        {
+                            "name": "Top Rosa Pink",
+                            "price": "R$ 45,00",
+                            "image": "http://placehold.it/500x500"
+                        },
+                        {
+                            "name": "Top Jasmim Verde Azulado",
+                            "price": "R$ 45,00",
+                            "image": "http://placehold.it/500x500"
+                        },
+                        {
+                            "name": "Top Lírio Azul Escuro",
+                            "price": "R$ 45,00",
+                            "image": "http://placehold.it/500x500"
+                        },
+                        {
+                            "name": "Top Orquídea Lilás",
+                            "price": "R$ 45,00",
+                            "image": "http://placehold.it/500x500"
+                        },
+                        {
+                            "name": "Top Antúrio Vinho",
+                            "price": "R$ 45,00",
+                            "image": "http://placehold.it/500x500"
+                        }
+                    ]
+                },
+                {
+                    name: 'Short',
+                    products: [
+                        {
+                                "name": "Short Camélia Rosa Claro",
+                                "price": "R$ 55,00",
+                                "image": "http://placehold.it/500x500"
+                            },
+                            {
+                                "name": "Short Rosa Pink",
+                                "price": "R$ 55,00",
+                                "image": "http://placehold.it/500x500"
+                            },
+                            {
+                                "name": "Short Jasmim Verde Azulado",
+                                "price": "R$ 55,00",
+                                "image": "http://placehold.it/500x500"
+                            },
+                            {
+                                "name": "Short Lírio Azul Escuro",
+                                "price": "R$ 55,00",
+                                "image": "http://placehold.it/500x500"
+                            },
+                            {
+                                "name": "Short Orquídea Lilás",
+                                "price": "R$ 55,00",
+                                "image": "http://placehold.it/500x500"
+                            },
+                            {
+                                "name": "Short Antúrio Vinho",
+                                "price": "R$ 55,00",
+                                "image": "http://placehold.it/500x500"
+                            }
+                        ]
+                    }
+                ]
+                renderApp()
+    </script>
+</body>
+
+</html>
