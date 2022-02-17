@@ -91,11 +91,12 @@
             overflow: hidden;
             box-shadow: 0 0.125rem 0.25rem #00000040;
         }
-        
-        .products li a{
+
+        .products li a {
             text-decoration: none;
             color: black;
         }
+
         .products li img {
             width: 100%;
             height: auto;
@@ -206,11 +207,13 @@
     </div>
     <script>
         const renderProduct = (product) => {
+            const redirectUrl = product.url ||
+                `https://api.whatsapp.com/send?phone=5585991186090&text=Oiii%2C%20gostei%20do%20${product.name}%20<3 q`
             return `
             <li>
-                <a href="https://api.whatsapp.com/send?phone=5585991186090&text=Oiii%2C%20gostei%20do%20${product.name}%20<3">
+                <a href="${redirectUrl}">
                     <div class="card-head">
-                        <img src="${product.image}" alt="Foto de ${product.name}">
+                        <img src="${product.image || "http://placehold.it/500x500"}" alt="Foto de ${product.name}">
                     </div>
                     <div class="card-body">
                         <div class="name">
@@ -245,111 +248,147 @@
             const html = renderSections(sections)
             document.querySelector('.products').innerHTML = html
         }
+
         const sections = [{
-                    name: 'Legging',
-                    products: [{
-                            "name": "Legging Camélia Rosa Claro",
-                            "price": "R$ 85,00",
-                            "image": "http://placehold.it/500x500"
-                        },
-                        {
-                            "name": "Legging Rosa Pink",
-                            "price": "R$ 85,00",
-                            "image": "http://placehold.it/500x500"
-                        },
-                        {
-                            "name": "Legging Jasmim Verde Azulado",
-                            "price": "R$ 85,00",
-                            "image": "http://placehold.it/500x500"
-                        },
-                        {
-                            "name": "Legging Lírio Azul Escuro",
-                            "price": "R$ 85,00",
-                            "image": "http://placehold.it/500x500"
-                        },
-                        {
-                            "name": "Legging Orquídea Lilás",
-                            "price": "R$ 85,00",
-                            "image": "http://placehold.it/500x500"
-                        },
-                        {
-                            "name": "Legging Antúrio Vinho",
-                            "price": "R$ 85,00",
-                            "image": "http://placehold.it/500x500"
-                        }
-                    ]
-                },
-                {
-                    name: 'Top',
-                    products: [{
-                            "name": "Top Camélia Rosa Claro",
-                            "price": "R$ 45,00",
-                            "image": "http://placehold.it/500x500"
-                        },
-                        {
-                            "name": "Top Rosa Pink",
-                            "price": "R$ 45,00",
-                            "image": "http://placehold.it/500x500"
-                        },
-                        {
-                            "name": "Top Jasmim Verde Azulado",
-                            "price": "R$ 45,00",
-                            "image": "http://placehold.it/500x500"
-                        },
-                        {
-                            "name": "Top Lírio Azul Escuro",
-                            "price": "R$ 45,00",
-                            "image": "http://placehold.it/500x500"
-                        },
-                        {
-                            "name": "Top Orquídea Lilás",
-                            "price": "R$ 45,00",
-                            "image": "http://placehold.it/500x500"
-                        },
-                        {
-                            "name": "Top Antúrio Vinho",
-                            "price": "R$ 45,00",
-                            "image": "http://placehold.it/500x500"
-                        }
-                    ]
-                },
-                {
-                    name: 'Short',
-                    products: [
-                        {
-                                "name": "Short Camélia Rosa Claro",
-                                "price": "R$ 55,00",
-                                "image": "http://placehold.it/500x500"
-                            },
-                            {
-                                "name": "Short Rosa Pink",
-                                "price": "R$ 55,00",
-                                "image": "http://placehold.it/500x500"
-                            },
-                            {
-                                "name": "Short Jasmim Verde Azulado",
-                                "price": "R$ 55,00",
-                                "image": "http://placehold.it/500x500"
-                            },
-                            {
-                                "name": "Short Lírio Azul Escuro",
-                                "price": "R$ 55,00",
-                                "image": "http://placehold.it/500x500"
-                            },
-                            {
-                                "name": "Short Orquídea Lilás",
-                                "price": "R$ 55,00",
-                                "image": "http://placehold.it/500x500"
-                            },
-                            {
-                                "name": "Short Antúrio Vinho",
-                                "price": "R$ 55,00",
-                                "image": "http://placehold.it/500x500"
-                            }
-                        ]
+                name: 'Top',
+                products: [{
+                        "category": "top",
+                        "name": "Top Camélia Rosa Claro ",
+                        "price": "R$ 45,00",
+                        "url": "https://wa.me/p/4805989529517289/558591186090",
+                        "image": "../img/top-camelia.png"
+                    },
+                    {
+                        "category": "top",
+                        "name": "Top Rosa Pink",
+                        "price": "R$ 45,00",
+                        "url": "https://wa.me/p/6923794137691256/558591186090",
+                        "image": "../img/top-rosa.png"
+                    },
+                    {
+                        "category": "top",
+                        "name": "Top Jasmim Verde Azulado",
+                        "price": "R$ 45,00",
+                        "url": "https://wa.me/p/5014208568642760/558591186090",
+                        "image": "../img/top-jasmim.png"
+                    },
+                    {
+                        "category": "top",
+                        "name": "Top Lírio Azul Escuro",
+                        "price": "R$ 45,00",
+                        "url": "https://wa.me/p/4554054931367417/558591186090",
+                        "image": "../img/top-lirio.png"
+                    },
+                    {
+                        "category": "top",
+                        "name": "Top Orquídea Lilás",
+                        "price": "R$ 45,00",
+                        "url": "https://wa.me/p/6866420533428244/558591186090",
+                        "image": "../img/top-orquidea.png"
+                    },
+                    {
+                        "category": "top",
+                        "name": "Top Antúrio Vinho",
+                        "price": "R$ 45,00",
+                        "url": "https://wa.me/p/4795881233823533/558591186090",
+                        "image": "../img/top-anturio.png"
                     }
                 ]
-                renderApp()
+            },
+            {
+                name: 'Legging',
+                products: [{
+                        "category": "legging",
+                        "name": "Legging Camélia Rosa Claro",
+                        "price": "R$ 85,00",
+                        "url": "https://wa.me/p/5191933310837628/558591186090",
+                        "image": "../img/legging-camelia.png"
+                    },
+                    {
+                        "category": "legging",
+                        "name": "Legging Rosa Pink",
+                        "price": "R$ 85,00",
+                        "url": "https://wa.me/p/7603272166353168/558591186090",
+                        "image": "../img/legging-rosa.png"
+                    },
+                    {
+                        "category": "legging",
+                        "name": "Legging Orquídea Lilás",
+                        "price": "R$ 85,00",
+                        "url": "https://wa.me/p/5346619502022956/558591186090",
+                        "image": "../img/legging-orquidea.png"
+                    },
+                    {
+                        "category": "legging",
+                        "name": "Legging Jasmim Verde Azulado",
+                        "price": "R$ 85,00",
+                        "url": "",
+                        "image": ""
+                    },
+                    {
+                        "category": "legging",
+                        "name": "Legging Lírio Azul Escuro",
+                        "price": "R$ 85,00",
+                        "url": "",
+                        "image": ""
+                    },
+                    {
+                        "category": "legging",
+                        "name": "Legging Antúrio Vinho",
+                        "price": "R$ 85,00",
+                        "url": "",
+                        "image": ""
+                    }
+                ]
+            },
+            {
+                name: 'Short',
+                products: [{
+                        "category": "short",
+                        "name": "Short Camélia Rosa Claro",
+                        "price": "R$ 55,00",
+                        "url": "https://wa.me/p/4776596285765293/558591186090",
+                        "image": "../img/short-camelia.png"
+                    },
+                    {
+                        "category": "short",
+                        "name": "Short Jasmim Verde Azulado",
+                        "price": "R$ 55,00",
+                        "url": "https://wa.me/p/4945036468872863/558591186090",
+                        "image": "../img/short-jasmim.png"
+                    },
+                    {
+                        "category": "short",
+                        "name": "Short Lírio Azul Escuro",
+                        "price": "R$ 55,00",
+                        "url": "https://wa.me/p/5225297634156909/558591186090",
+                        "image": "../img/short-lirio.png"
+                    },
+                    {
+                        "category": "short",
+                        "name": "Short Orquídea Lilás",
+                        "price": "R$ 55,00",
+                        "url": "https://wa.me/p/5388889277797086/558591186090",
+                        "image": "../img/short-orquidea.png"
+                    },
+                    {
+                        "category": "short",
+                        "name": "Short Antúrio Vinho",
+                        "price": "R$ 55,00",
+                        "url": "https://wa.me/p/4535948573183798/558591186090",
+                        "image": "../img/short-anturio.png"
+                    },
+                    {
+                        "category": "short",
+                        "name": "Short Rosa Pink",
+                        "price": "R$ 55,00",
+                        "url": "",
+                        "image": ""
+                    },
+                ]
+            }
+        ]
+        renderApp()
     </script>
 </body>
 
